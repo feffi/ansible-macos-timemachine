@@ -1,0 +1,18 @@
+---
+- name: Set macOS defaults
+  include_role:
+    name: feffi.macos-defaults
+  vars:
+    macos_defaults:
+      defaults:
+        - { domain: "com.apple.TimeMachine", key: "DoNotOfferNewDisksForBackup", type: "boolean", value: "{{ macos_timemachine.prompt_new }}", description: "Prevent Time Machine from prompting to use new hard drives as backup volume" }
+
+- name: "Disable local Time Machine snapshots"
+  become: true
+  command: "tmutil disablelocal"
+  when: not macos_timemachine.local
+
+- name: "Enable local Time Machine snapshots"
+  become: true
+  command: "tmutil enablelocal"
+  when: macos_timemachine.local
