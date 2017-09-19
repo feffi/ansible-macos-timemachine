@@ -7,4 +7,4 @@
       local: false
       prompt_new: false
   roles:
-    - ansible-macos-timemachine
+    - { role: ansible-macos-timemachine }
