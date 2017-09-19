@@ -11,8 +11,10 @@ galaxy_info:
   galaxy_tags:
     - system
     - osx
+    - macos
     - config
     - timemachine
+    - backup
 dependencies:
   - { role: feffi.macos-defaults,
       macos_defaults: {
