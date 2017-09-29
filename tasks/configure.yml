@@ -11,8 +11,10 @@
   become: true
   command: "tmutil disablelocal"
   when: not macos_timemachine.local
+  changed_when: false
 
 - name: "Enable local Time Machine snapshots"
   become: true
   command: "tmutil enablelocal"
   when: macos_timemachine.local
+  changed_when: false
